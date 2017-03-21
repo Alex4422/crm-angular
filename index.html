@@ -1,30 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="crmAngular">
     <head>
         <title>CRM - angular</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
-        
-        
-        
+
+        <a ui-sref="home" ui-sref-active="active">main</a>
+        <a ui-sref="clients" ui-sref-active="active">clients</a>
+        <a ui-sref="interactions" ui-sref-active="active">interactions</a>
+
+
+        <ui-view>
+            <div>Naviguez avec le menu situé en haut</div>
+        </ui-view>
+
+
+
         <!--app-->
         <script src="app/angular.min.js"></script>
+        <script src="app/angular-ui-router.min.js"></script>
         <script src="app/app.js"></script>
-        
+
         <!--factories-->
         <script src="app/factories/clientFactory.js"></script>
         <script src="app/factories/interactionFactory.js"></script>
-        
+
         <!--filtres-->
         <script src="app/filters/highlightFilter.js"></script>
-        
+
         <!--directives-->
         <script src="app/directives/clientDirective.js"></script>
         <!--<script src="app/directives/includeInteration.js"></script>-->
-        
+
         <!--controllers-->
         <script src="app/controllers/clientCtrl.js"></script>
         <script src="app/controllers/interactionCtrl.js"></script>

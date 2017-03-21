@@ -9,21 +9,8 @@ app.config(function ($stateProvider) {
         url: '/',
         templateUrl: templateFolder + "index.html"
     }
-    var clientState = {
-        name: 'clients',
-        url: '/clients',
-        templateUrl: templateFolder + "clients.html"
-    }
-
-    var interactionState = {
-        name: 'interactions',
-        url: '/interactions',
-        templateUrl: templateFolder + "interactions.html"
-    }
 
     $stateProvider.state(homeState);
-    $stateProvider.state(clientState);
-    $stateProvider.state(interactionState);
 });
 
 

@@ -31,25 +31,31 @@ app.factory("httpFactory", ["$q", "$http", function ($q, $http) {
                 console.log("veuillez indiquer l'url à appeler");
                 return "Veuillez indiquer l'url à appeler";
             }
-//            console.log(_this);
+//            console.log(_this.data);
 
             return $q(function(resolve, reject) {
                 $http({
                     method: _this.method,
                     url: _this.url,
                     data: _this.data,
+                    headers: {
+                        'Content-Type': "application/json",
+                        'Accept' : 'application/json',
+                      },
                 }).then(function successCallback(response) {
-                    console.log("response", response);
-                    _this.response.valid = true;
-                    _this.response.message = "La requete a bien été executée";
-                    _this.response.data = response.data;
+//                    console.log("response", response.data);
+                    _this.response.valid = response.data.valid;
+                    _this.response.message = response.data.message;
+                    _this.response.data = response.data.data;
                     _this.response.queryResponse = response;
                     
                     return resolve(_this.response);
                     
                     resolve('Hello, ' + name + '!');
                 }, function errorCallback(response) {
-                    console.log("response", response);
+//                    console.log("response", response);
+                    _this.response.valid = false;
+                    _this.response.message = "Erreur lors de la requête";
                     _this.response.queryResponse = response;
                     
                     return reject(_this.response);

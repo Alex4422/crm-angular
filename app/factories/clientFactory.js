@@ -1,5 +1,5 @@
 app.factory("clientFactory", ["httpFactory", function (httpFactory) {
-        console.log("client factory");
+//        console.log("client factory");
 
         var clientFactory = {
             client: {},
@@ -16,8 +16,11 @@ app.factory("clientFactory", ["httpFactory", function (httpFactory) {
         };
         
 
-        clientFactory.insertClient = function () {
-
+        clientFactory.insertClient = function (client) {
+            httpFactory.setUrl("client/add");
+            httpFactory.setMethod("POST");
+            httpFactory.setData(client);
+            return httpFactory.request();
         };
 
 

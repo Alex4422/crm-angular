@@ -163,7 +163,7 @@ app.get("/interaction/:id", function(req,res){
 app.get("/interaction/user/:id", function(req,res){
   var id = req.params.id;
   connection.query('SELECT * FROM interaction WHERE client_id = ?',[id],function(err,rows){
-    if(err || row == ""){
+    if(err || rows == ""){
       response.valid = false;
       response.message = "Error while getting interaction id : " + id;
       response.data = [];

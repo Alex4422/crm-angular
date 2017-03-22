@@ -7,7 +7,7 @@ app.config(function ($stateProvider) {
         templateUrl: templateFolder + "interactions.html"
     }
     
-    var interationAddState = {
+    var interactionAddState = {
             name: 'interactionsAdd',
             url: '/interactions/add',
             templateUrl: templateFolder + "interactions-add.html"

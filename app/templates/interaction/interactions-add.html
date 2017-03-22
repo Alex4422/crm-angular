@@ -2,7 +2,7 @@
     
     <form novalidate id="add-interation-form" name="interationForm">
         <div>
-            <label>Nom :</label>
+            <label>Title :</label>
             <input ng-model="interation.title" name="title" type="text" required ng-required="true" />
             <span ng-show="interationForm.title.$invalid && !interationForm.title.$pristine" class="help-block">You title is required.</span>
         </div>
@@ -13,18 +13,16 @@
             <span ng-show="interationForm.description.$invalid && !interationForm.description.$pristine" class="help-block">You description is required.</span>
         </div>
 
+		<!-- check the validation -->
         <div>
             <label>active :</label>
-            <input ng-model="client.mail" name="mail" type="email" required ng-required="true" />
-            <span ng-show="clientForm.email.$invalid && !clientForm.email.$pristine" class="help-block">You name is required.</span>
+            <input ng-model="interation.active" name="active" type="checkbox" required ng-required="true" />
+            <span ng-show="interationForm.active.$invalid && !interationForm.active.$pristine" class="help-block">You status active is required.</span>
         </div>
 
-        <div>
-            <label>Téléphone :</label>
-            <input ng-model="client.phone" name="phone" type="text"/>
-        </div>
+        
 
-        <button type="submit" ng-click="addClient()" class="btn btn-primary" ng-disabled="clientForm.$invalid">Valider</button>
+        <button type="submit" ng-click="addInteration()" class="btn btn-primary" ng-disabled="interationForm.$invalid">Valider</button>
     </form>
     
 </div>

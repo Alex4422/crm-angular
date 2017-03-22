@@ -2,7 +2,7 @@
         console.log("interaction controller");
 }]);*/
 
-app.controller("interationCtrl", ["$scope", "interactionFactory", function($scope, interactionFactory) {
+app.controller("interactionCtrl", ["$scope", "interactionFactory", function($scope, interactionFactory) {
     console.log("interaction controller");
     
     var client = interactionFactory.getInteractionById(1).then(function(data) {

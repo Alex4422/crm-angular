@@ -18,7 +18,7 @@ app.factory("httpFactory", ["$q", "$http", function ($q, $http) {
             this.url = this.baseUrl + sUrl;
         };
         httpFactory.setMethod = function (sMethod) {
-            this.mehtod = sMethod;
+            this.method = sMethod;
         };
         
         httpFactory.setData = function (data) {

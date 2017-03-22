@@ -1,0 +1,26 @@
+<div class="interaction-form" ng-controller="interactionCtrl">
+    
+    <form novalidate id="add-interaction-form" name="interactionForm">
+        <div>
+            <label>Titre :</label>
+            <input ng-model="interaction.title" name="title" type="text" required ng-required="true" />
+            <span ng-show="interactionForm.title.$invalid && !interactionForm.title.$pristine" class="help-block">Your title is required.</span>
+        </div>
+
+        <div>
+            <label>Description :</label>
+            <input ng-model="interaction.description" name="description" type="text" required ng-required="true" />
+            <span ng-show="interactionForm.description.$invalid && !interactionForm.description.$pristine" class="help-block">Your description is required.</span>
+        </div>
+
+        <div>
+            <label>Actif ? :</label>
+            <input ng-model="interaction.active" name="active" type="checkbox" required ng-required="true" />
+            <span ng-show="interactionForm.active.$invalid && !interactionForm.active.$pristine" class="help-block">Your active status is required.</span>
+        </div>
+
+
+        <button type="submit" ng-click="updateInteraction()" class="btn btn-primary" ng-disabled="interactionForm.$invalid">Valider</button>
+    </form>
+    
+</div>

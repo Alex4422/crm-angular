@@ -6,6 +6,13 @@ app.config(function ($stateProvider) {
         url: '/interactions',
         templateUrl: templateFolder + "interactions.html"
     }
+    
+    var interationAddState = {
+            name: 'interactionsAdd',
+            url: '/interactions/add',
+            templateUrl: templateFolder + "interactions-add.html"
+        }
 
     $stateProvider.state(interactionState);
+    $stateProvider.state(interactionAddState);
 });

@@ -1,7 +1,4 @@
 <div ng-controller="clientCtrl">
-    clients html
-
-    <a ui-sref="clientsAdd" ui-sref-active="active">Ajouter un client</a>
     
     <table border="1">
         <tr>
@@ -21,7 +18,8 @@
             <td>{{client.phone}}</td>
             <td>
                 <a ui-sref="clientsEdit({id: client.id})">Editer</a>
-                <a ng-click="deleteClient(client.id)">Supprimer</a>
+                <a ng-click="deleteClient(client.id)" class="danger">Supprimer</a>
+                <a ui-sref="clientsInteractions({id: client.id})" class="warning">Interactions</a>
             </td>
         </tr>
     </table>

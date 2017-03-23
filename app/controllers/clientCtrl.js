@@ -1,4 +1,4 @@
-app.controller("clientCtrl", ["$scope", "clientFactory", "$stateParams", function ($scope, clientFactory, $stateParams) {
+app.controller("clientCtrl", ["$scope", "clientFactory", "interactionFactory", "$stateParams", function ($scope, clientFactory, interactionFactory,$stateParams) {
         var clientId = $stateParams.id;
 //        console.log("$stateParams", clientId);
         
@@ -16,7 +16,13 @@ app.controller("clientCtrl", ["$scope", "clientFactory", "$stateParams", functio
                 $scope.client = data.data[0];
                 $scope.client.id = clientId;
             });
+            
+            interactionFactory.getInteractionByClientId(clientId).then(function(data) {
+                console.log(data);
+                $scope.listInteractionsClient = data.data;
+            });
         }
+
 
         $scope.addClient = function () {
 //            console.log("adding client", $scope.client);

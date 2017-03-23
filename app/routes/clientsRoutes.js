@@ -25,8 +25,15 @@ app.config(function ($stateProvider) {
         templateUrl: templateFolder + "clients-edit.html"
     }
     
+    var clientInteractionsState = {
+        name: 'clientsInteractions',
+        url: '/clients/{id:int}/interactions',
+        templateUrl: templateFolder + "clients-interactions.html"
+    }
+    
     $stateProvider.state(clientState);
     $stateProvider.state(clientAddState);
     $stateProvider.state(clientEditState);
     $stateProvider.state(clientShowState);
+    $stateProvider.state(clientInteractionsState);
 });

@@ -16,6 +16,13 @@ app.factory("interactionFactory", ["httpFactory", function (httpFactory) {
             return httpFactory.request();
         };
         
+        interactionFactory.getInteractionByClientId = function (id) {
+
+        	httpFactory.setMethod("GET");
+            httpFactory.setUrl("interaction/client/" + id);
+            return httpFactory.request();
+        };
+        
         interactionFactory.deleteById = function (id) {
             httpFactory.setMethod("GET");
             httpFactory.setUrl("interaction/delete/" + id);

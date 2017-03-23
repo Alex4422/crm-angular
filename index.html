@@ -4,44 +4,91 @@
         <title>CRM - angular</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                margin: 0;
+            }
+            ui-view, table {
+                max-width: 900px;
+                margin: 0 auto;
+                texxt-align: center;
+            }
+            div {
+                text-align: center;
+            }
+            a {
+                display: inline-block;
+                text-decoration: none;
+                padding: 5px;
+                border-radius: 5px;
+                background: #c6c6fb;
+                color: black;
+            }
+            a:hover {
+                cursor: pointer;
+            }
+            a.warning {
+                background: #ffff70;                
+            }
+
+            a.danger {
+                background: #fb6d6d;                
+            }
+            a.primary {
+                background: white;
+                border: 1px solid black;
+            }
+            
+            .menu {
+                text-align: left;
+                color: white;
+                background: black;
+                padding: 5px;
+            }
+            .menu a {
+                background: white;
+            }
+        </style>
     </head>
     <body>
 
-        <a ui-sref="home" ui-sref-active="active">main</a>
-        <a ui-sref="clients" ui-sref-active="active">clients</a>
-        <a ui-sref="interactions" ui-sref-active="active">interactions</a>
+        <!--<a ui-sref="home" ui-sref-active="active">main</a>-->
+        <div class="menu">
+            <a ui-sref="clients" ui-sref-active="active">Liste des clients</a>
+            <a ui-sref="clientsAdd" ui-sref-active="active" class="primary">Ajouter un client</a>            
+        </div>
 
 
-        <ui-view>
-            <div>Naviguez avec le menu situé en haut</div>
-        </ui-view>
+    <ui-view>
+        <div>Naviguez avec le menu situé en haut</div>
+    </ui-view>
 
 
 
-        <!--app-->
-        <script src="app/angular.min.js"></script>
-        <script src="app/angular-ui-router.min.js"></script>
-        <script src="app/app.js"></script>
-        
-        
-        <!--routes-->
-        <script src="app/routes/clientsRoutes.js"></script>
-        <script src="app/routes/interactionsRoutes.js"></script>
+    <!--app-->
+    <script src="app/angular.min.js"></script>
+    <script src="app/angular-ui-router.min.js"></script>
+    <script src="app/app.js"></script>
 
-        <!--factories-->
-        <script src="app/factories/httpFactory.js"></script>
-        <script src="app/factories/clientFactory.js"></script>
-        <script src="app/factories/interactionFactory.js"></script>
 
-        <!--filtres-->
-        <script src="app/filters/highlightFilter.js"></script>
+    <!--routes-->
+    <script src="app/routes/clientsRoutes.js"></script>
+    <script src="app/routes/interactionsRoutes.js"></script>
 
-        <!--directives-->
-        <script src="app/directives/clientDirective.js"></script>
-        <!--<script src="app/directives/includeInteration.js"></script>-->
+    <!--factories-->
+    <script src="app/factories/httpFactory.js"></script>
+    <script src="app/factories/clientFactory.js"></script>
+    <script src="app/factories/interactionFactory.js"></script>
 
-        <!--controllers-->
-        <script src="app/controllers/clientCtrl.js"></script>
-        <script src="app/controllers/interactionCtrl.js"></script>
-    </body>
+    <!--filtres-->
+    <script src="app/filters/highlightFilter.js"></script>
+
+    <!--directives-->
+    <script src="app/directives/clientDirective.js"></script>
+    <!--<script src="app/directives/includeInteration.js"></script>-->
+
+    <!--controllers-->
+    <script src="app/controllers/clientCtrl.js"></script>
+    <script src="app/controllers/interactionCtrl.js"></script>
+</body>
 </html>

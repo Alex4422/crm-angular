@@ -1,8 +1,10 @@
-app.controller("interactionCtrl", ["$scope", "interactionFactory", "$stateParams", function($scope, interactionFactory, $stateParams) {
+app.controller("interactionCtrl", ["$scope", "interactionFactory", "$stateParams", "$state", function($scope, interactionFactory, $stateParams, $state) {
     console.log("interaction controller");
     
     var clientId = $stateParams.id;
     var interactionId = $stateParams.interactionId;
+    
+    console.log("$state.get()", $state.get("interactionsAdd"));
     
     $scope.listInteractions = [];
 
@@ -22,9 +24,11 @@ app.controller("interactionCtrl", ["$scope", "interactionFactory", "$stateParams
     $scope.addInteraction = function () {
         console.log("adding interaction", $scope.interaction);
         if (typeof clientId != "undefined") {
+            $scope.interaction.active = (typeof $scope.interaction.active != "undefined");
 	        $scope.interaction.client_id = clientId;
 	    	interactionFactory.insertInteraction($scope.interaction).then(function (data) {
-	            console.log("insert inte", data);
+//	            console.log("insert inte", data);
+                    $state.go("clientsInteractions", {id: clientId});
 	        });
         }
     };

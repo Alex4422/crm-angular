@@ -15,7 +15,7 @@
 
         <div>
             <label>Actif ? :</label>
-            <input ng-model="interaction.active" name="active" type="checkbox" required ng-required="true" />
+            <input ng-model="interaction.active" name="active" type="checkbox" ng-required="false" />
             <span ng-show="interactionForm.active.$invalid && !interactionForm.active.$pristine" class="help-block">Your active status is required.</span>
         </div>
 

@@ -15,13 +15,13 @@ app.config(function ($stateProvider) {
     
     var interactionAddState = {
             name: 'interactionsAdd',
-            url: '/interactions/add',
+            url: '/interactions/add/{id:int}',
             templateUrl: templateFolder + "interactions-add.html"
         }
     
     var interactionEditState = {
             name: 'interactionsEdit',
-            url: '/interactions/edit/{id:int}',
+            url: '/interactions/edit/{interactionId:int}',
             templateUrl: templateFolder + "interactions-edit.html"
         }
 

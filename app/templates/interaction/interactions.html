@@ -1,8 +1,10 @@
 
 <div ng-controller="interactionCtrl">
-	interactions html
+	interactions
 	
-	<a ui-sref="interactionsAdd" ui-sref-active="active">Ajouter une interaction</a>
+	<!-- <a ui-sref="interactionsAdd" ui-sref-active="active">Ajouter une interaction</a> interactionsAdd -->
+    
+    <a ui-sref="interactionsAdd" ui-sref-active="active">Ajouter une interaction</a>
     
     <table border="2">
         <tr>
@@ -13,15 +15,16 @@
             
         </tr>
         
-        <tr ng-repeat="client in listClients">
+        <tr ng-repeat="interaction in listInteractions">
             <td>{{interaction.id}}</td>
             <td>{{interaction.title}}</td>
             <td>{{interaction.description}}</td>
             <td>{{interaction.active}}</td>
           
             <td>
-                <a ui-sref="interactionsEdit({id: interaction.id})">Editer</a>
-                <a ng-click="deleteinteraction(interaction.id)">Supprimer</a>
+                <a ui-sref="interactionsEdit({interactionId: interaction.id})">Editer</a>
+                
+                <a ng-click="deleteInteraction(interaction.id)">Supprimer</a>
             </td>
         </tr>
     </table>

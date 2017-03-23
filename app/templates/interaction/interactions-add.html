@@ -1,28 +1,28 @@
 <div class="interaction-form" ng-controller="interactionCtrl">
     
-    <form novalidate id="add-interation-form" name="interationForm">
+    <form novalidate id="add-interaction-form" name="interactionForm">
         <div>
             <label>Title :</label>
-            <input ng-model="interation.title" name="title" type="text" required ng-required="true" />
-            <span ng-show="interationForm.title.$invalid && !interationForm.title.$pristine" class="help-block">You title is required.</span>
+            <input ng-model="interaction.title" name="title" type="text" required ng-required="true" />
+            <span ng-show="interactionForm.title.$invalid && !interactionForm.title.$pristine" class="help-block">You title is required.</span>
         </div>
 
         <div>
             <label>description :</label>
-            <input ng-model="interation.description" name="description" type="text" required ng-required="true" />
-            <span ng-show="interationForm.description.$invalid && !interationForm.description.$pristine" class="help-block">You description is required.</span>
+            <input ng-model="interaction.description" name="description" type="text" required ng-required="true" />
+            <span ng-show="interactionForm.description.$invalid && !interactionForm.description.$pristine" class="help-block">You description is required.</span>
         </div>
 
 		<!-- check the validation -->
         <div>
             <label>active :</label>
-            <input ng-model="interation.active" name="active" type="checkbox" required ng-required="true" />
-            <span ng-show="interationForm.active.$invalid && !interationForm.active.$pristine" class="help-block">You status active is required.</span>
+            <input ng-model="interaction.active" name="active" type="checkbox"  ng-required="false" />
+            <span ng-show="interactionForm.active.$invalid && !interactionForm.active.$pristine" class="help-block">You status active is required.</span>
         </div>
 
         
 
-        <button type="submit" ng-click="addInteration()" class="btn btn-primary" ng-disabled="interationForm.$invalid">Valider</button>
+        <button type="submit" ng-click="addInteraction()" class="btn btn-primary" ng-disabled="interactionForm.$invalid">Valider</button>
     </form>
     
 </div>

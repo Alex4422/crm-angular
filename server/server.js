@@ -47,7 +47,6 @@ app.get("/clients", function (req, res) {
 
 //Client by id
 app.get("/client/:id", function(req,res){
-  console.log("It's Juan")
   var id = req.params.id;
   connection.query('SELECT * FROM client WHERE id = ?',[id],function(err,row){
     if(err || row == ""){
@@ -110,6 +109,7 @@ app.get("/client/delete/:id", function(req,res){
   var id = req.params.id;
 
   connection.query("DELETE FROM client WHERE id = ? ",[id], function(err,rows){
+    console.log(rows);
     if(err || rows == ""){
       response.valid = false;
       response.message = "Error while deleting the client with id = "+ id;
@@ -160,7 +160,7 @@ app.get("/interaction/:id", function(req,res){
 });
 
 //Interaction by user id
-app.get("/interaction/user/:id", function(req,res){
+app.get("/interaction/client/:id", function(req,res){
   var id = req.params.id;
   connection.query('SELECT * FROM interaction WHERE client_id = ?',[id],function(err,rows){
     if(err || rows == ""){
@@ -178,6 +178,7 @@ app.get("/interaction/user/:id", function(req,res){
 
 //Add Interaction
 app.post("/interaction/add", function(req,res){
+  console.log(req.body);
   var input = JSON.parse(JSON.stringify(req.body));
 
   var data = {title : input.title , description : input.description , active : input.active , client_id : input.client_id};

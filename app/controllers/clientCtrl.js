@@ -1,17 +1,49 @@
-app.controller("clientCtrl", ["$scope", "clientFactory", function($scope, clientFactory) {
-//    console.log("client controller");
-    
-    var client = clientFactory.getClientById(1).then(function(data) {
-        console.log("get client id",data);
-    });
-    
-    
-    
-    
-    $scope.addClient = function() {
-       console.log("adding client", $scope.client);
-       clientFactory.insertClient($scope.client).then(function(data) {
-           console.log("insert client", data);
-       });
-    };
-}]);
+app.controller("clientCtrl", ["$scope", "clientFactory", "interactionFactory", "$stateParams", function ($scope, clientFactory, interactionFactory,$stateParams) {
+        var clientId = $stateParams.id;
+//        console.log("$stateParams", clientId);
+        
+        $scope.listClients = [];
+        
+        
+        clientFactory.getAll().then(function(data) {
+//            console.log("all", data);
+            $scope.listClients = data.data;
+        });
+
+        if (typeof clientId != "undefined") {
+            clientFactory.getClientById(clientId).then(function (data) {
+//                console.log("get client id", data.data[0]);
+                $scope.client = data.data[0];
+                $scope.client.id = clientId;
+            });
+            
+            interactionFactory.getInteractionByClientId(clientId).then(function(data) {
+                console.log(data);
+                $scope.listInteractionsClient = data.data;
+            });
+        }
+
+
+        $scope.addClient = function () {
+//            console.log("adding client", $scope.client);
+            clientFactory.insertClient($scope.client).then(function (data) {
+//                console.log("insert client", data);
+            });
+        };
+        
+        $scope.updateClient = function () {
+//            console.log("adding client", $scope.client);
+            clientFactory.updateClient($scope.client).then(function (data) {
+//                console.log("update client", data);
+            });
+        };
+        $scope.deleteClient = function(id) {
+            if (confirm('T\'es sur morray ?')) {
+                clientFactory.deleteById(id).then(function(data) {
+                    console.log("delete", data);
+                });                
+            }
+        };
+        
+       
+    }]);

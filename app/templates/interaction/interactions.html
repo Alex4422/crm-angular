@@ -1,5 +1,32 @@
 
 <div ng-controller="interactionCtrl">
-interactions html
+	interactions
+	
+	<!-- <a ui-sref="interactionsAdd" ui-sref-active="active">Ajouter une interaction</a> interactionsAdd -->
+    
+    <a ui-sref="interactionsAdd" ui-sref-active="active">Ajouter une interaction</a>
+    
+    <table border="2">
+        <tr>
+        	<th>ID</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Actif?</th>
+            
+        </tr>
+        
+        <tr ng-repeat="interaction in listInteractions">
+            <td>{{interaction.id}}</td>
+            <td>{{interaction.title}}</td>
+            <td>{{interaction.description}}</td>
+            <td>{{interaction.active}}</td>
+          
+            <td>
+                <a ui-sref="interactionsEdit({interactionId: interaction.id})">Editer</a>
+                
+                <a ng-click="deleteInteraction(interaction.id)">Supprimer</a>
+            </td>
+        </tr>
+    </table>
     
 </div>

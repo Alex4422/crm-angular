@@ -1,0 +1,30 @@
+<div class="client-form" ng-controller="clientCtrl">
+    
+    <form novalidate id="add-client-form" name="clientForm">
+        <div>
+            <label>Nom :</label>
+            <input ng-model="client.name" name="name" type="text" required ng-required="true" />
+            <span ng-show="clientForm.name.$invalid && !clientForm.name.$pristine" class="help-block">You name is required.</span>
+        </div>
+
+        <div>
+            <label>Prénom :</label>
+            <input ng-model="client.firstname" name="firstname" type="text" required ng-required="true" />
+            <span ng-show="clientForm.firstname.$invalid && !clientForm.firstname.$pristine" class="help-block">You firstname is required.</span>
+        </div>
+
+        <div>
+            <label>Mail :</label>
+            <input ng-model="client.mail" name="mail" type="email" required ng-required="true" />
+            <span ng-show="clientForm.email.$invalid && !clientForm.email.$pristine" class="help-block">You name is required.</span>
+        </div>
+
+        <div>
+            <label>Téléphone :</label>
+            <input ng-model="client.phone" name="phone" type="text"/>
+        </div>
+
+        <button type="submit" ng-click="updateClient()" class="btn btn-primary" ng-disabled="clientForm.$invalid">Valider</button>
+    </form>
+    
+</div>

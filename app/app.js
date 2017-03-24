@@ -7,7 +7,7 @@ app.config(function ($stateProvider) {
     var homeState = {
         name: 'home',
         url: '/',
-        templateUrl: templateFolder + "index.html"
+        templateUrl: templateFolder + "clients.html"
     }
 
     $stateProvider.state(homeState);

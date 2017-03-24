@@ -1,0 +1,26 @@
+<div ng-controller="clientCtrl">
+
+    <a ui-sref="clientsAdd" ui-sref-active="active">Liste des interactions</a>
+
+    <a ui-sref="interactionsAdd({id: client.id})">Ajouter une interaction</a>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>description</th>
+            <th>is active</th>
+            <th>Actions</th>
+        </tr>
+
+        <tr ng-repeat="interaction in listInteractionsClient">
+            <td>{{interaction.id}}</td>
+            <td>{{interaction.title}}</td>
+            <td>{{interaction.description}}</td>
+            <td>{{interaction.active}}</td>
+            <td><a ui-sref="interactionsEdit({interactionId: interaction.id})">Editer</a></td>
+        </tr>
+    </table>
+
+
+
+</div>
